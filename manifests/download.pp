@@ -1,7 +1,7 @@
 define archive::download(
-$url,
 $src_target='/usr/src',
-$archive_name
+$archive,
+$url
 ){
   package { 'wget':
 	ensure => present,
@@ -9,7 +9,7 @@ $archive_name
 	  }
   exec { "wget file":
                 command => "wget -P $src_target '$url'",
-                unless => "test -e $src_target/$archive_name",
+                unless => "test -e $src_target/$archive",
                 path => '/usr/bin:/usr/sbin:/bin:/usr/local/bin:/opt/local/bin',
                 require => Package['wget'],
         }

@@ -11,13 +11,6 @@ $path=$::path,
         allow_virtual => false
          }
 
-# if $root_dir {
-#   $extract_dir = "${target}/${root_dir}"
-# } 
-# else {
-#   $extract_dir = "${target}/${archive_name}"
-# } 
-
  exec { " extract $archive_name":
            command => $extract_zip,
            path => '/usr/bin:/usr/sbin:/bin:/usr/local/bin:/opt/local/bin',
